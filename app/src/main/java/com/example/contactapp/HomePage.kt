@@ -231,14 +231,15 @@ class HomePage : ComponentActivity() {
                     .size(40.dp)
                     .clickable {
                         GlobalScope.launch {
-                            Toast.makeText(
-                                applicationContext,
-                                "${contact.firstName} This Contact Is Successfully Deleted!!",
-                                Toast.LENGTH_SHORT
-                            ).show()
+
                             db.contactDao().deleteContact()
                             onContactDeleted(contact)
                         }
+                        Toast.makeText(
+                            applicationContext,
+                            "${contact.firstName} This Contact Is Successfully Deleted!!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
             )
         }
